@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // authUrl: 'http://localhost:3300/api/auth',
+  // todosUrl: 'http://localhost:3300/api/todos'
+
+  authUrl: "https://comobo-apis.herokuapp.com/api/auth",
+  todosUrl: "https://comobo-apis.herokuapp.com/api/todos"
 };
 
 /*

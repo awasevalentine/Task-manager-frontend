@@ -1,0 +1,27 @@
+<div class="table-responsive table-wrapper w-100 pt-5 pt-md-3">
+  <div class="sub-table-wrapper pt-4 pt-md-0 w-100">
+  <table class="table table-sm ">
+      <thead class="table-dark ">
+          <tr>
+              <th>Id</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Start Date</th>
+              <th>Due Date</th>
+
+              <th>Status</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let todos of todoData; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{todos.title}}</td>
+            <td>{{todos.description}}</td>
+            <td>{{todos.startDate}}</td>
+            <td>{{todos.dueDate}}</td>
+            <!-- <td>{{todos.startDate | date:"dd, MM, yyyy"}}</td>
+            <td>{{todos.dueDate | date:"dd, MM, yyyy"}}</td> -->
+        </tr>
+      </table>
+</div>
+</div>

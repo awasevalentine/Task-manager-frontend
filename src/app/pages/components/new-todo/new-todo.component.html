@@ -1,0 +1,43 @@
+<div class="container-fluid w-100">
+  <div class="pt-3 pt-md-0 d-lg-flex justify-content-center d-sm-block">
+    <h4 class="headers pt-5 pt-md-0 display-4">Create Your Daily Task</h4>
+  </div>
+    <div class="align-items-center pt-3 pb-2 mb-3 border-bottom input-wrapper d-sm-flex justify-content-center w-100">
+    <form #todoForm="ngForm" method="POST" action="/create" (ngSubmit)="newTodosForm()" id="newTodos" name="newTodos" class="w-100">
+
+                <mat-form-field class="example-full-width">
+                    <mat-label class="field">Title</mat-label>
+                    <input type="text" matInput name="todoTitle" id="todoTitle" required="" [(ngModel)]="todoDetails.title">
+                </mat-form-field>
+
+
+                <mat-form-field class="example-full-width">
+                    <mat-label class="field">Description</mat-label>
+                    <textarea matInput rows="3" name="todoDescription" id="todoDescription" required="" [(ngModel)]="todoDetails.description"></textarea>
+                </mat-form-field>
+
+            <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 d-sm-block mt-4">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Start Date</mat-label>
+                    <input matInput [min]="todoDetails.startDate" [matDatepicker]="picker" name="todoStartDate" id="todoStartDate" required="" [(ngModel)]="todoDetails.startDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+            <div class="col-12 col-md-6 col-lg-6  d-sm-block mt-4">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Due Date</mat-label>
+                    <input matInput [min]="todoDetails.dueDate"  [matDatepicker]="todoDueDate" name="todoDueDate" id="todoDueDate" required="" [(ngModel)]="todoDetails.dueDate">
+                    <mat-datepicker-toggle matSuffix [for]="todoDueDate"></mat-datepicker-toggle>
+                    <mat-datepicker #todoDueDate></mat-datepicker>
+                </mat-form-field>
+            </div>
+          </div>
+        <div class="btn-wrapper mt-2 d-flex">
+            <button type="submit" class="btn-lg btn-dark" [disabled]="!todoForm.valid">Create</button>
+          </div>
+          </form>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="text-center main-content-wrapper mt-5">
+  <form class="form-signin" [formGroup]='regForm' action="api/register" method="POST" (ngSubmit)="register()">
+<h1 class="h3 mb-5 font-weight-normal display-4">Sign up</h1>
+<mat-form-field appearance="standard">
+  <mat-label>Username</mat-label>
+  <input matInput type="text" id="inputUsername" name="name" autofocus formControlName="name" autocomplete="off">
+</mat-form-field>
+<mat-form-field appearance="standard">
+  <mat-label>Email address</mat-label>
+  <input matInput type="email" id="inputEmail" name="email" autofocus formControlName="email" autocomplete="off">
+</mat-form-field>
+
+<mat-form-field appearance="standard">
+  <mat-label>Password</mat-label>
+  <input matInput type="password" id="inputPassword" name="password" autofocus formControlName="password" autocomplete="off">
+</mat-form-field>
+
+<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+
+<div class="mt-3 already-user" style="height:14px;font-family: HelveticaNeue-Regular, HelveticaNeue, robotoregular, Arial, sans-serif; font-size: 13px;color: #2570e0;border: 0;cursor: pointer;text-decoration: none;color: inherit;margin-left: -4px;margin-top: 11px;">
+  Already have an account?  <a [routerLink]="['/user-login']" style="vertical-align: baseline;color: #0033A1;">Login</a>
+</div>
+</form>
+</div>

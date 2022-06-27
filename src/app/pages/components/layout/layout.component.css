@@ -1,0 +1,73 @@
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+a:active, :focus{
+  color: blue !important;
+}
+
+a:hover{
+  color: green !important;
+}
+
+.button-wrapper{
+  cursor: pointer;
+}
+
+.profile {
+  font-size: 14px;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  flex: 1 0 auto;
+}
+a{
+  cursor: pointer;
+}
+
+.fa{
+  margin-right: .3rem;
+}
+
+.user-profile{
+  font-size: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.button-wrapper {
+  font-size: 12px;
+}
+.navbar-wrapper{
+  background-color: rgb(255, 255, 255);
+}
+.searchbtn{
+  display: flex;
+  justify-content: center;
+}
+

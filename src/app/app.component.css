@@ -1,0 +1,14 @@
+.header {
+  border: solid rgb(0, 110, 255);
+  padding-bottom: 1em;
+  background: rgb(0, 110, 255);
+  align-content: center;
+  align-content: space-between;
+  justify-content: flex-start;
+  flex: 1 1 0px;
+  width: cal(100% - 96px);
+}
+
+.sbar {
+  width: 50%;
+}

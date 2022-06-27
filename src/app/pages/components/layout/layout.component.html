@@ -1,0 +1,72 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="sidenav.toggle()"><i class="fa fa-bars" aria-hidden="true"></i> </button>
+    <a [routerLink]="[ '/']"> <h1 class="display-3 text-white ml-3">Todo App</h1></a>
+    <div class="ml-5 w-75 searchbtn">
+      <input class="form-control w-25 d-none d-lg-flex" type="search" placeholder="Search" aria-label="Search">
+    </div>
+
+    <div class="dropdown">
+      <a class="button-wrapper ml-lg-5 float-right"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-user-circle mr-1 text-white profile" aria-hidden="true" >
+
+        </i><span class="d-none d-lg-inline-flex  text-white profile">Profile</span>
+      </a>
+      <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+        <div class="mt-lg-3" *ngIf="authService.getUser()">
+          <i class="user-profile fa fa-user-circle " aria-hidden="true"></i>
+          <p class="text-align-center" style="text-align: center;"> welcome
+            <br>
+            <b>{{ authService.getUser() | uppercase }}</b>
+          </p>
+        </div>
+        <a class="dropdown-item" href="#">profile</a>
+        <a class="dropdown-item" href="#">Setting</a>
+        <div class="well" *ngIf="authService.getUser()">
+          <hr>
+        <a class="dropdown-item signout" (click) = 'logout()'>Sign out</a>
+      </div>
+      <div class="me" *ngIf="!authService.getUser()">
+        <a class="dropdown-item" (click) = 'login()'>Sign in</a>
+      </div>
+    </div>
+  </div>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container "
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #sidenav [opened]="openSidenav" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" style="width: 200px;" class="navbar-wrapper">
+      <mat-nav-list class="mt-5">
+        <a mat-list-item [routerLink]="['/dashboard/task']">
+          <i class="fa fa-home mr-1" aria-hidden="true"></i>Task</a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="['/dashboard/important']">
+          <i class="fa fa-star mr-1" aria-hidden="true"></i>Important
+          <span class="tag tag-default tag-pill pull-right float-right ml-5" style="margin-left: 3rem; background-color: silver; color: blue; border-radius: 50%; padding: 10px" *ngIf="importantTaskCount" >{{importantTaskCount}}</span>
+        </a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="['/dashboard/plan']">
+          <i class="fa fa-calendar mr-1" aria-hidden="true"></i>Planned</a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item (click)="setting()">
+          <i class="fa fa-wrench mr-1" aria-hidden="true" ></i>Settings</a>
+      </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="mt-lg-5">
+      <div class="container-fluid">
+      <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>
+
+
+
