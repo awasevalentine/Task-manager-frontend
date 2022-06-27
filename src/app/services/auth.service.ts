@@ -73,14 +73,14 @@ export class AuthService {
   // Method for checking user logged in state
   public isLoggedIn(): boolean {
     const user = this.getUserDetails();
-    // const {exp} = user
 
-    if(user.exp !== undefined && user.exp > Date.now() / 1000){
-      return true
-    }
-    else {
-      return false;
-    }
+      if(user?.exp> Date.now() / 1000){
+        return true
+      }
+      else {
+        return false;
+      }
+
   }
 
 
